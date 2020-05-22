@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { CollapsibleWrapper, ItemWrapper, Title, Panel } from './Collapsible.styles';
 import { items } from '../../data';
 
@@ -7,7 +7,6 @@ const Item = ({item}) => {
     const panelBody = useRef(null);
     const { title, content } = item;
 
-    console.log(panelBody.current);
     const currentHeight = state ? panelBody.current.clientHeight : 0;
 
     return (
@@ -21,6 +20,15 @@ const Item = ({item}) => {
 }
 
 export const Collapsible = () => {
+
+    useEffect(() => {
+
+        console.log('component did mount');
+
+        return(() => console.log('unmounting'))
+
+    });
+
     return (
         <CollapsibleWrapper>
             {
