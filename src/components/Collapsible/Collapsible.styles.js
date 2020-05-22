@@ -27,13 +27,37 @@ export const Panel = styled.div`
     div {
         padding: 0 15px 20px 15px;
     }
-    display: none;
 `;
 
 export const ItemWrapper = styled.div`
-    &.isExpanded {
+    /* Simple way */
+    /* &.isExpanded {
         ${Panel} {
             display: block;
         }
+    } */
+
+    /* CSS max-height transition */
+    /* ${Panel} {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
     }
+    &.isExpanded {
+        ${Panel} {
+            max-height: 200px
+        }
+    } */
+
+    /* JS calculates height + css height transition */
+    &.isExpanded {
+        ${Title} {
+            box-shadow: none;
+        }
+    }
+    ${Panel} {
+        overflow: hidden;
+        transition: height 0.3s ease-out;
+    }
+
 `;

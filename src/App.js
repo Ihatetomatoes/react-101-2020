@@ -9,8 +9,8 @@ function App() {
       <header>
         <img src={image} alt="React 101" />
         <h1>Collapsible</h1>
-        <Collapsible />
       </header>
+      <Collapsible />
     </AppContainer>
   );
 }
