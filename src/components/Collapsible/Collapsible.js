@@ -1,14 +1,15 @@
-import React from 'react';
-import { CollapsibleWrapper, Title, Panel } from './Collapsible.styles';
+import React, { useState } from 'react';
+import { CollapsibleWrapper, ItemWrapper, Title, Panel } from './Collapsible.styles';
 import { items } from '../../data';
 
 const Item = ({item}) => {
+    const [state, setState] = useState(false);
     const { title, content } = item;
     return (
-        <>
-            <Title>{title}</Title>
+        <ItemWrapper className={state ? 'isExpanded' : null}>
+            <Title onClick={() => setState(!state)}>{title}</Title>
             <Panel><div>{content}</div></Panel>
-        </>
+        </ItemWrapper>
     )
 }
 
