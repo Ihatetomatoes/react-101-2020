@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { CollapsibleWrapper, ItemWrapper, Title, Panel } from './Collapsible.styles';
-import { Loader } from '../'
+import { Loader } from '../';
+import { useContactsAPI } from '../../hooks';
 
 const Item = ({item}) => {
     const [state, setState] = useState(false);
@@ -21,32 +22,7 @@ const Item = ({item}) => {
 
 export const Collapsible = () => {
 
-    const [isLoading, setLoading] = useState(true);
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-
-        setLoading(true);
-        fetch('https://randomuser.me/api/?results=20')
-        .then(response => response.json())
-        .then(data => data.results.map(user => (
-            {
-                title: `${user.name.first} ${user.name.last}`,
-                content: `${user.login.username}`
-            }
-        )))
-        .then(users => {
-            setUsers(users);
-            setLoading(false);
-        })
-        .catch(error => {
-            console.log(error);
-            setLoading(false);
-        });
-
-        return(() => console.log('unmounting'))
-
-    }, []);
+    const [{isLoading, users}] = useContactsAPI();
 
     return (
         <CollapsibleWrapper>
