@@ -21,18 +21,29 @@ const Item = ({item}) => {
 
 export const Collapsible = () => {
 
+    const [users, setUsers] = useState([]);
+
     useEffect(() => {
 
-        console.log('component did mount');
+        fetch('https://randomuser.me/api/?results=20')
+        .then(response => response.json())
+        .then(data => data.results.map(user => (
+            {
+                title: `${user.name.first} ${user.name.last}`,
+                content: `${user.login.username}`
+            }
+        )))
+        .then(users => setUsers(users))
+        .catch(error => console.log(error));
 
         return(() => console.log('unmounting'))
 
-    });
+    }, []);
 
     return (
         <CollapsibleWrapper>
             {
-                items.map(item => <Item key={item.title} item={item} />)
+                users.map(item => <Item key={item.title} item={item} />)
             }
         </CollapsibleWrapper>
     )
