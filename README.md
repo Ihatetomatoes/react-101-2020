@@ -1,5 +1,16 @@
 # React 101 - 2020
-All the working files for the React 101 2020.
+All working files for the React 101 2020.
+
+`Recording branch` has [all the commits](https://github.com/Ihatetomatoes/react-101-2020/commits/recording) as we progressed through the course.
+
+## Free Online Course
+ - [React 101 - Signup here](https://ihatetomatoes.net/get-react-101/)
+
+## Resources
+- [React Hooks Introductions](https://reactjs.org/docs/hooks-intro.html)
+- [React Hooks API](https://reactjs.org/docs/hooks-reference.html)
+- [Styled Components](https://styled-components.com/)
+- [Reset for Styled Components](https://github.com/zacanger/styled-reset)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
